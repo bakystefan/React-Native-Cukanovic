@@ -1,8 +1,8 @@
-import { AsyncStorage } from "react-native";
+const baseURL = "https://reqres.in/api";
 
-export function fetchImageService(page?: number, limit?: number) {
+export function fetchUsersService(page?: number) {
   return new Promise((resolve, reject) => {
-    fetch(`https://picsum.photos/v2/list?page=${page}&limit=${limit}`)
+    fetch(`${baseURL}/users?page=${page}`)
       .then(res => {
         return res.json();
       })
@@ -15,12 +15,14 @@ export function fetchImageService(page?: number, limit?: number) {
   });
 }
 
-export function loginUserService(username: string, password: string) {
+export function fetchOneUserService(id?: number) {
   return new Promise((resolve, reject) => {
-    let userToken = `${username}${password}`;
-    AsyncStorage.setItem("userToken", userToken)
-      .then(() => {
-        resolve(userToken);
+    fetch(`${baseURL}/users/${id}`)
+      .then(res => {
+        return res.json();
+      })
+      .then(response => {
+        resolve(response);
       })
       .catch(error => {
         reject(error);
@@ -28,14 +30,3 @@ export function loginUserService(username: string, password: string) {
   });
 }
 
-export function logoutUserService() {
-  return new Promise((resolve, reject) => {
-    AsyncStorage.removeItem("userToken")
-      .then(() => {
-        resolve();
-      })
-      .catch(error => {
-        reject(error);
-      });
-  });
-}

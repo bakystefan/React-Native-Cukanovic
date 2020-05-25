@@ -11,13 +11,10 @@ interface Props {
 class SideBar extends Component<Props, {}> {
   render() {
     const { navigation } = this.props;
+    //@todo create Menu LIST items
     return (
       <View style={styles.container}>
-        <ListItem title="Home" onPress={() => navigation.navigate("Home")} />
-        <ListItem
-          title="Blank Page"
-          onPress={() => navigation.navigate("Blank")}
-        />
+
       </View>
     );
   }

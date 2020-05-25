@@ -8,7 +8,10 @@ const styles = StyleSheet.create({
   loadingFooter: {
     justifyContent: "center",
     alignItems: "center"
-  }
+  },
+  scene: {
+    flex: 1,
+  },
 });
 
 export default styles;

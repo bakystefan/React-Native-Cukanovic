@@ -13,8 +13,7 @@ const { width } = Dimensions.get("window");
 import Home from "../screens/AppScreens/Home";
 import Blank from "../screens/AppScreens/Blank";
 import SideBar from "../screens/AppScreens/SideBar";
-import Login from "../screens/AuthScreens/Login";
-import AuthLoading from "../screens/AuthLoading";
+import OneItem from '../screens/AppScreens/OneItem';
 
 const MainStack = createStackNavigator(
   {
@@ -26,20 +25,12 @@ const MainStack = createStackNavigator(
   }
 );
 
-const AuthStack = createStackNavigator(
-  {
-    Login: { screen: Login }
-  },
-  {
-    initialRouteName: "Login",
-    headerMode: "none"
-  }
-);
 
 const AppStack = createDrawerNavigator(
   {
     MainStack: { screen: MainStack },
-    Blank: { screen: Blank }
+    Blank: { screen: Blank },
+    OneItem: { screen: OneItem }
   },
   {
     drawerWidth: width - 50,
@@ -51,12 +42,10 @@ const AppStack = createDrawerNavigator(
 export default createAppContainer(
   createSwitchNavigator(
     {
-      AuthLoading: AuthLoading,
-      AuthStack: AuthStack,
       AppStack: AppStack
     },
     {
-      initialRouteName: "AuthLoading"
+      initialRouteName: "AppStack"
     }
   )
 );

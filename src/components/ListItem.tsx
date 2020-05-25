@@ -8,17 +8,20 @@ import {
 } from "react-native";
 import { colors } from "../constants";
 import Icon from "react-native-vector-icons/Ionicons";
+import { AvatarItem } from './index';
 
 interface Props extends TouchableOpacityProps {
   title: string;
+  avatarUrl: string;
 }
 
 export class ListItem extends Component<Props, {}> {
   render() {
-    const { title } = this.props;
+    const { title, avatarUrl } = this.props;
     return (
       <TouchableOpacity {...this.props} style={styles.itemContainer}>
         <Text style={styles.titleStyle}>{title}</Text>
+        <AvatarItem avatar={avatarUrl} />
       </TouchableOpacity>
     );
   }
@@ -26,7 +29,7 @@ export class ListItem extends Component<Props, {}> {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     backgroundColor: colors.containerBg,
     borderBottomWidth: 1,

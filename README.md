@@ -1,6 +1,4 @@
-## React Native Boilerplate
-
-### A [React Native](https://facebook.github.io/react-native/docs/getting-started.html) Starter Kit with [React Navigation](https://reactnavigation.org/) + [Redux](https://github.com/reactjs/redux) + [TypeScript](https://github.com/microsoft/TypeScript) + [Formik](https://github.com/jaredpalmer/formik)
+## TEST APP CUKOVIC
 
 ## Get Started
 
@@ -23,7 +21,12 @@ $ npm install
   or
   yarn
 ```
+### NOTE !
+if running on windows, after yarn install there may be error with metro config please reach out to
+```
+https://github.com/facebook/metro/issues/453
 
+```
 ### Run on iOS
 
 - Run `react-native run-ios` in your terminal

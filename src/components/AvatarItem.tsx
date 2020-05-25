@@ -9,20 +9,18 @@ import {
 import { colors } from "../constants";
 
 interface Props extends ViewProps {
-  title: string;
   avatar: string;
 }
 
 export class AvatarItem extends Component<Props, {}> {
   render() {
-    const { title, avatar } = this.props;
+    const { avatar } = this.props;
     return (
       <View {...this.props} style={styles.itemContainer}>
         <ImageBackground
           source={{ uri: `${avatar}.jpg` }}
           style={styles.avatarStyle}
         >
-          <Text style={styles.titleStyle}>{title}</Text>
         </ImageBackground>
       </View>
     );
@@ -34,8 +32,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.containerBg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.borderColor,
     paddingHorizontal: 16,
     paddingVertical: 12
   },

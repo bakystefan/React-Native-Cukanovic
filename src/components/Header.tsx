@@ -5,18 +5,19 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 interface Props {
   title: string;
+  isForBack?: boolean;
   leftButtonPress?: () => void;
   rightButtonPress?: () => void;
 }
 
 export class Header extends Component<Props, {}> {
   render() {
-    const { title, leftButtonPress, rightButtonPress } = this.props;
+    const { title, leftButtonPress, rightButtonPress, isForBack } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.leftContainer}>
           <TouchableOpacity style={styles.iconButton} onPress={leftButtonPress}>
-            <Icon name="ios-menu" size={24} />
+            <Icon name={isForBack ? 'ios-arrow-back' : 'ios-menu'} size={24} />
           </TouchableOpacity>
         </View>
         <View style={styles.midContainer}>
